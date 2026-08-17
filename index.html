@@ -1,0 +1,287 @@
+<!doctype html><html lang="ja"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ふるさと納税 自治体別 受入実績DB｜自治体が公表しているふるさと納税の受入額・受入件数を年度別に</title>
+<meta name="description" content="各自治体が自分のサイトで公表しているふるさと納税の受入額・受入件数を、年度別に横並びにしたものです。掲載は公表値という事実と出典リンクのみ。 13自治体・37年度分を掲載（2026-08-17時点）。">
+<style>
+:root{--bg:#f6f6f2;--panel:#fff;--ink:#22201a;--sub:#6f6a5c;--ac:#9a6b12;--line:#e6e2d6;
+ --g3:#b45309;--g2:#0f766e;--g1:#64748b;--g0:#94a3b8}
+@media(prefers-color-scheme:dark){:root{--bg:#12110d;--panel:#1b1a14;--ink:#e9e5da;--sub:#a49d8b;--ac:#d9a441;--line:#2c2a20;
+ --g3:#fbbf24;--g2:#5eead4;--g1:#94a3b8;--g0:#6b7280}}
+*{box-sizing:border-box}body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Hiragino Sans","Noto Sans JP",sans-serif;background:var(--bg);color:var(--ink);line-height:1.65}
+header{background:linear-gradient(135deg,#8a5d0d,#4a3105);color:#fff;padding:30px 0 26px}
+.wrap{max-width:900px;margin:0 auto;padding:0 15px}
+h1{margin:0;font-size:22px;letter-spacing:.01em}
+.tag{opacity:.93;margin-top:8px;font-size:13.5px}
+.cnt{margin-top:13px;font-size:12.5px;background:rgba(255,255,255,.16);display:inline-block;padding:5px 13px;border-radius:20px}
+.note{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:14px 16px;margin:18px 0;font-size:13px;color:var(--sub)}
+.note b{color:var(--ink)}.note ul{margin:8px 0 0;padding-left:1.2em}.note li{margin:5px 0}
+.note a{color:var(--ac)}
+.sum{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0}
+.sum div{flex:1 1 130px;background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:9px 11px;font-size:11.5px;color:var(--sub)}
+.sum b{display:block;font-size:19px;line-height:1.3;color:var(--ink)}
+.sum .hi b{color:var(--g3)}
+.ctl{position:sticky;top:0;z-index:5;background:var(--bg);padding:10px 0;border-bottom:1px solid var(--line);display:flex;flex-wrap:wrap;gap:7px;align-items:center}
+.ctl select,.ctl input[type=search]{font:inherit;font-size:13px;padding:7px 9px;border:1px solid var(--line);border-radius:8px;background:var(--panel);color:var(--ink);min-width:0}
+.ctl input[type=search]{flex:1 1 160px}
+.ck{font-size:12.5px;color:var(--sub);display:flex;align-items:center;gap:4px;background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:6px 10px}
+.hit{font-size:12.5px;color:var(--sub);margin:12px 0 4px}
+.c{display:flex;gap:12px;background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:13px;margin:9px 0}
+.c.g3{border-left:4px solid var(--g3)}.c.g2{border-left:4px solid var(--g2)}.c.g0{opacity:.82}
+.gr{flex:0 0 84px;text-align:center;border-right:1px solid var(--line);padding-right:10px;display:flex;flex-direction:column;justify-content:center}
+.gr b{font-size:19px;line-height:1.15}.gr span{font-size:10.5px;color:var(--sub)}
+.c.g3 .gr b{color:var(--g3)}.c.g2 .gr b{color:var(--g2)}.c.g1 .gr b{color:var(--g1)}.c.g0 .gr b{color:var(--g0)}
+.bd{flex:1;min-width:0}
+.bd h3{margin:0 0 3px;font-size:16px;word-break:break-word}
+.pf{font-size:11.5px;color:var(--sub);font-weight:400;margin-left:7px}
+.bd p{margin:3px 0;font-size:12.5px;color:var(--sub)}
+.ti{color:var(--ink)!important}
+.bg{font-size:11px;font-weight:700;border:1px solid currentColor;border-radius:6px;padding:1px 6px;margin-left:4px;white-space:nowrap;display:inline-block}
+.bg.g3{color:var(--g3)}.bg.g2{color:var(--g2)}.bg.g1{color:var(--g1)}.bg.g0{color:var(--g0)}
+.cost{background:rgba(154,107,18,.09);border-radius:8px;padding:6px 9px;margin-top:5px!important}
+.cost b{color:var(--ink)}
+.tb{width:100%;border-collapse:collapse;margin:8px 0 4px;font-size:12px}
+.tb th,.tb td{border:1px solid var(--line);padding:4px 7px;text-align:right;white-space:nowrap}
+.tb thead th{background:rgba(128,128,128,.08);text-align:center;color:var(--sub);font-weight:600}
+.tb tbody th{text-align:left;font-weight:600;color:var(--ink)}
+.pt{display:block;font-size:10px;font-weight:400;color:var(--g3)}
+.tw{overflow-x:auto}
+.sc a{color:var(--ac);text-decoration:none;font-weight:600}
+.refs{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:14px 16px;margin:22px 0;font-size:13px}
+.refs h2{margin:0 0 8px;font-size:14px}.refs ul{margin:0;padding-left:1.2em}.refs li{margin:4px 0}
+.refs a{color:var(--ac);text-decoration:none}.refs span{color:var(--sub);font-size:11.5px}
+main{padding:6px 0 40px}
+footer{color:var(--sub);font-size:11.5px;padding:22px 0 44px;border-top:1px solid var(--line)}
+footer p{margin:6px 0}
+@media(max-width:520px){.gr{flex:0 0 66px}.gr b{font-size:16px}.tb{font-size:11px}}
+</style></head><body>
+<header><div class="wrap">
+  <h1>ふるさと納税 自治体別 受入実績DB</h1>
+  <div class="tag">各自治体が自分のサイトで公表しているふるさと納税の受入額・受入件数を、年度別に横並びにしたものです。掲載は公表値という事実と出典リンクのみ。</div>
+  <div class="cnt">13自治体・37年度分を掲載（2026-08-17時点）／伸び率を計算できたのは 6自治体</div>
+</div></header>
+<main><div class="wrap">
+
+<div class="note">
+  <b>この一覧の見方</b>
+  <ul>
+    <li>載せているのは、<b>各自治体が自分のサイトで公表しているふるさと納税の受入額・受入件数</b>です。まとめサイトや推計値は使っていません。出典は各カードのリンクから原本を確認できます。</li>
+    <li><b>伸び率はこのサイトで計算したもの</b>です。同じ自治体の<b>連続する2年度</b>の公表値が揃っているときだけ出しています（現在 6自治体、うち前年度比+30%以上が 2自治体）。年度が飛んでいる自治体には伸び率を出していません。</li>
+    <li>年度の途中経過（「令和7年度（4月〜12月）」など）が公表値として載っていることがあります。出典の期間の記載から<b>途中経過と分かったものには印をつけ、伸び率の計算からは外して</b>います（通年の値と並べると比較になりません）。年度の表記は出典のままにしてあります。</li>
+    <li>募集に要した費用は、公表している自治体だけに表示しています（現在 0自治体）。総務省告示（平成31年総務省告示第179号）では、募集に要する費用は寄附額の50%以下、うち返礼品の調達費は30%以下とされています。<b>このサイトは調達費だけを取り出した数字は持っていません。</b></li>
+    <li><b>返礼品のカテゴリ別の点数（菓子が何品あるか等）は載せていません。</b>自治体の公表ページからは取れないためです。カテゴリの薄さを判断する材料としては、返礼品ポータルの各自治体ページをご自身でご確認ください。</li>
+    <li>寄附額が伸びていることは、<b>返礼品事業者として応募できること・採択されることを意味しません。</b>応募資格は自治体ごとに異なります。応募の可否は必ず各自治体の募集要領と担当部署にご確認ください（募集ページが同じサイト内で見つかった自治体には、そのリンクを付けています／現在 1自治体）。</li>
+    <li>このページに<b>会員登録・決済・お問い合わせフォームはありません</b>。入力した絞り込み条件を含め、外部に送信するものは何もありません。</li>
+  </ul>
+</div>
+
+<div class="sum">
+  <div class="hi"><b>2</b>前年度比 +30%以上</div>
+  <div><b>6</b>伸び率を計算できた自治体</div>
+  <div><b>13</b>掲載自治体</div>
+  <div><b>37</b>掲載している年度の数</div>
+  <div><b>0</b>募集経費の公表あり</div>
+  <div><b>1</b>事業者募集ページへのリンクあり</div>
+</div>
+
+<div class="ctl">
+  <select id="fp"><option value="">都道府県: すべて</option><option value="茨城県">茨城県</option><option value="京都府">京都府</option><option value="佐賀県">佐賀県</option><option value="千葉県">千葉県</option><option value="大阪府">大阪府</option><option value="長野県">長野県</option><option value="福井県">福井県</option><option value="北海道">北海道</option></select>
+  <label class="ck"><input type="checkbox" id="fh">前年度比+30%以上のみ</label>
+  <label class="ck"><input type="checkbox" id="fc">募集経費の公表ありのみ</label>
+  <input id="fq" type="search" placeholder="自治体名で絞り込み" autocomplete="off">
+</div>
+
+<p class="hit" id="hit">13自治体</p>
+<div id="ls">
+<article class="c g3" data-pref="京都府" data-g="62.5" data-hi="1" data-cost="0" data-q="福知山市 京都府 ふるさと納税寄附金の実績">
+  <div class="gr"><b>+62.5%</b><span>令和7年度</span></div>
+  <div class="bd">
+    <h3>福知山市<span class="pf">京都府</span></h3>
+    <p class="ti">令和7年度の受入額 <b>8.42億円</b>／受入件数 36,457件
+      <span class="bg g3">前年度比 +62.5%</span></p>
+    <p class="mt">伸び率は 令和6年度（5.18億円）→ 令和7年度（8.42億円）の公表値からこのサイトで計算しています。</p>
+    
+    <table class="tb"><thead><tr><th>年度</th><th>受入額</th><th>受入件数</th><th>募集経費</th></tr></thead><tbody><tr><th>令和5年度</th><td>2.98億円</td><td>14,866件</td><td>—</td></tr><tr><th>令和6年度</th><td>5.18億円</td><td>24,803件</td><td>—</td></tr><tr><th>令和7年度</th><td>8.42億円</td><td>36,457件</td><td>—</td></tr></tbody></table>
+    <p class="sc">出典: <a href="https://www.city.fukuchiyama.lg.jp/site/furusatotax/35856.html" target="_blank" rel="noopener">福知山市の公表ページ →</a> ｜ <a href="https://www.city.fukuchiyama.lg.jp/site/furusatotax/17397.html" target="_blank" rel="noopener">返礼品提供事業者の募集 →</a></p>
+  </div>
+</article>
+<article class="c g3" data-pref="大阪府" data-g="31.3" data-hi="1" data-cost="0" data-q="大阪市 大阪府 ふるさと寄附金の受入実績">
+  <div class="gr"><b>+31.3%</b><span>令和6年度</span></div>
+  <div class="bd">
+    <h3>大阪市<span class="pf">大阪府</span></h3>
+    <p class="ti">令和7年度（途中経過）の受入額 <b>10.11億円</b>／受入件数 12,018件
+      <span class="bg g3">前年度比 +31.3%</span></p>
+    <p class="mt">伸び率は 令和5年度（9.79億円）→ 令和6年度（12.86億円）の公表値からこのサイトで計算しています。</p>
+    
+    <table class="tb"><thead><tr><th>年度</th><th>受入額</th><th>受入件数</th><th>募集経費</th></tr></thead><tbody><tr><th>令和2年度</th><td>4.26億円</td><td>2,338件</td><td>—</td></tr><tr><th>令和3年度</th><td>2.72億円</td><td>4,427件</td><td>—</td></tr><tr><th>令和4年度</th><td>5.51億円</td><td>5,419件</td><td>—</td></tr><tr><th>令和5年度</th><td>9.79億円</td><td>3,951件</td><td>—</td></tr><tr><th>令和6年度</th><td>12.86億円</td><td>7,961件</td><td>—</td></tr><tr><th>令和7年度<span class="pt">途中経過（4月～12月）</span></th><td>10.11億円</td><td>12,018件</td><td>—</td></tr></tbody></table>
+    <p class="sc">出典: <a href="https://www.city.osaka.lg.jp/seisakukikakushitsu/page/0000387027.html" target="_blank" rel="noopener">大阪市の公表ページ →</a></p>
+  </div>
+</article>
+<article class="c g2" data-pref="大阪府" data-g="21.1" data-hi="0" data-cost="0" data-q="貝塚市 大阪府 かいづかふるさと応援寄附の状況">
+  <div class="gr"><b>+21.1%</b><span>令和6年度</span></div>
+  <div class="bd">
+    <h3>貝塚市<span class="pf">大阪府</span></h3>
+    <p class="ti">令和6年度の受入額 <b>6.79億円</b>／受入件数 24,959件
+      <span class="bg g2">前年度比 +21.1%</span></p>
+    <p class="mt">伸び率は 令和5年度（5.61億円）→ 令和6年度（6.79億円）の公表値からこのサイトで計算しています。</p>
+    
+    <table class="tb"><thead><tr><th>年度</th><th>受入額</th><th>受入件数</th><th>募集経費</th></tr></thead><tbody><tr><th>令和元年度</th><td>4.34億円</td><td>26,305件</td><td>—</td></tr><tr><th>令和2年度</th><td>6.75億円</td><td>44,615件</td><td>—</td></tr><tr><th>令和3年度</th><td>6.24億円</td><td>38,763件</td><td>—</td></tr><tr><th>令和4年度</th><td>6.11億円</td><td>35,803件</td><td>—</td></tr><tr><th>令和5年度</th><td>5.61億円</td><td>26,890件</td><td>—</td></tr><tr><th>令和6年度</th><td>6.79億円</td><td>24,959件</td><td>—</td></tr></tbody></table>
+    <p class="sc">出典: <a href="https://www.city.kaizuka.lg.jp/kakuka/sogoseisaku/seisaku/menu/other/kaizuka_furusato_oenkifu/kifukin_katuyo/kifu_jokyo.html" target="_blank" rel="noopener">貝塚市の公表ページ →</a></p>
+  </div>
+</article>
+<article class="c g1" data-pref="福井県" data-g="-8.7" data-hi="0" data-cost="0" data-q="敦賀市 福井県 使い道と実績">
+  <div class="gr"><b>-8.7%</b><span>令和5年度</span></div>
+  <div class="bd">
+    <h3>敦賀市<span class="pf">福井県</span></h3>
+    <p class="ti">令和5年度の受入額 <b>79.86億円</b>／受入件数 455,106件
+      <span class="bg g1">前年度比 -8.7%</span></p>
+    <p class="mt">伸び率は 令和4年度（87.49億円）→ 令和5年度（79.86億円）の公表値からこのサイトで計算しています。</p>
+    
+    <table class="tb"><thead><tr><th>年度</th><th>受入額</th><th>受入件数</th><th>募集経費</th></tr></thead><tbody><tr><th>平成30年度</th><td>1.77億円</td><td>9,972件</td><td>—</td></tr><tr><th>令和元年度</th><td>6.27億円</td><td>44,370件</td><td>—</td></tr><tr><th>令和2年度</th><td>34.24億円</td><td>219,492件</td><td>—</td></tr><tr><th>令和3年度</th><td>77.22億円</td><td>445,917件</td><td>—</td></tr><tr><th>令和4年度</th><td>87.49億円</td><td>501,071件</td><td>—</td></tr><tr><th>令和5年度</th><td>79.86億円</td><td>455,106件</td><td>—</td></tr></tbody></table>
+    <p class="sc">出典: <a href="https://www.city.tsuruga.lg.jp/site/furusatonouzei/1387.html" target="_blank" rel="noopener">敦賀市の公表ページ →</a></p>
+  </div>
+</article>
+<article class="c g1" data-pref="長野県" data-g="-13.6" data-hi="0" data-cost="0" data-q="千曲市 長野県 千曲市ふるさと納税寄附金の使い道・寄附実績">
+  <div class="gr"><b>-13.6%</b><span>令和6年度</span></div>
+  <div class="bd">
+    <h3>千曲市<span class="pf">長野県</span></h3>
+    <p class="ti">令和6年度の受入額 <b>3.76億円</b>／受入件数 18,971件
+      <span class="bg g1">前年度比 -13.6%</span></p>
+    <p class="mt">伸び率は 令和5年度（4.35億円）→ 令和6年度（3.76億円）の公表値からこのサイトで計算しています。</p>
+    
+    <table class="tb"><thead><tr><th>年度</th><th>受入額</th><th>受入件数</th><th>募集経費</th></tr></thead><tbody><tr><th>令和4年度</th><td>3.62億円</td><td>18,233件</td><td>—</td></tr><tr><th>令和5年度</th><td>4.35億円</td><td>23,728件</td><td>—</td></tr><tr><th>令和6年度</th><td>3.76億円</td><td>18,971件</td><td>—</td></tr></tbody></table>
+    <p class="sc">出典: <a href="https://www.city.chikuma.lg.jp/soshiki/furusatoshinko/kifukin_furusatonozei/4734.html" target="_blank" rel="noopener">千曲市の公表ページ →</a></p>
+  </div>
+</article>
+<article class="c g1" data-pref="佐賀県" data-g="-22.4" data-hi="0" data-cost="0" data-q="佐賀市 佐賀県 寄附金の受入状況・活用状況">
+  <div class="gr"><b>-22.4%</b><span>令和6年度</span></div>
+  <div class="bd">
+    <h3>佐賀市<span class="pf">佐賀県</span></h3>
+    <p class="ti">令和6年度の受入額 <b>9.76億円</b>／受入件数 47,796件
+      <span class="bg g1">前年度比 -22.4%</span></p>
+    <p class="mt">伸び率は 令和5年度（12.57億円）→ 令和6年度（9.76億円）の公表値からこのサイトで計算しています。</p>
+    
+    <table class="tb"><thead><tr><th>年度</th><th>受入額</th><th>受入件数</th><th>募集経費</th></tr></thead><tbody><tr><th>平成31年度</th><td>10.87億円</td><td>63,612件</td><td>—</td></tr><tr><th>令和2年度</th><td>16.11億円</td><td>102,533件</td><td>—</td></tr><tr><th>令和3年度</th><td>14.96億円</td><td>131,388件</td><td>—</td></tr><tr><th>令和4年度</th><td>15.93億円</td><td>162,505件</td><td>—</td></tr><tr><th>令和5年度</th><td>12.57億円</td><td>107,859件</td><td>—</td></tr><tr><th>令和6年度</th><td>9.76億円</td><td>47,796件</td><td>—</td></tr></tbody></table>
+    <p class="sc">出典: <a href="https://www.city.saga.lg.jp/shisei/sagashioshiru/4/3957.html" target="_blank" rel="noopener">佐賀市の公表ページ →</a></p>
+  </div>
+</article>
+<article class="c g0" data-pref="北海道" data-g="" data-hi="0" data-cost="0" data-q="沼田町 北海道 令和6年度ふるさと納税寄附受入状況と活用状況の公表">
+  <div class="gr"><b>—</b><span>伸び率は未算出</span></div>
+  <div class="bd">
+    <h3>沼田町<span class="pf">北海道</span></h3>
+    <p class="ti">令和6年度の受入額 <b>18.81億円</b>
+      <span class="bg g0">前年度比 —</span></p>
+    <p class="mt">連続する2年度の通年の受入額が出典から取れていないため、伸び率は出していません。</p>
+    
+    <table class="tb"><thead><tr><th>年度</th><th>受入額</th><th>受入件数</th><th>募集経費</th></tr></thead><tbody><tr><th>令和6年度</th><td>18.81億円</td><td>—件</td><td>—</td></tr></tbody></table>
+    <p class="sc">出典: <a href="https://www.town.numata.hokkaido.jp/section/soumu/copy_of_Utilization_furusato.html" target="_blank" rel="noopener">沼田町の公表ページ →</a></p>
+  </div>
+</article>
+<article class="c g0" data-pref="千葉県" data-g="" data-hi="0" data-cost="0" data-q="浦安市 千葉県 令和6年度ふるさと納税の受け付け状況、使用用途">
+  <div class="gr"><b>—</b><span>伸び率は未算出</span></div>
+  <div class="bd">
+    <h3>浦安市<span class="pf">千葉県</span></h3>
+    <p class="ti">令和6年度の受入額 <b>13.41億円</b>／受入件数 14,888件
+      <span class="bg g0">前年度比 —</span></p>
+    <p class="mt">連続する2年度の通年の受入額が出典から取れていないため、伸び率は出していません。</p>
+    
+    <table class="tb"><thead><tr><th>年度</th><th>受入額</th><th>受入件数</th><th>募集経費</th></tr></thead><tbody><tr><th>令和6年度</th><td>13.41億円</td><td>14,888件</td><td>—</td></tr></tbody></table>
+    <p class="sc">出典: <a href="https://www.city.urayasu.lg.jp/todokede/zeikin/1034408/1046233.html" target="_blank" rel="noopener">浦安市の公表ページ →</a></p>
+  </div>
+</article>
+<article class="c g0" data-pref="茨城県" data-g="" data-hi="0" data-cost="0" data-q="ひたちなか市 茨城県 令和5年度ふるさと納税実績及び活用報告">
+  <div class="gr"><b>—</b><span>伸び率は未算出</span></div>
+  <div class="bd">
+    <h3>ひたちなか市<span class="pf">茨城県</span></h3>
+    <p class="ti">令和5年度の受入額 <b>3.60億円</b>／受入件数 21,268件
+      <span class="bg g0">前年度比 —</span></p>
+    <p class="mt">連続する2年度の通年の受入額が出典から取れていないため、伸び率は出していません。</p>
+    
+    <table class="tb"><thead><tr><th>年度</th><th>受入額</th><th>受入件数</th><th>募集経費</th></tr></thead><tbody><tr><th>令和5年度</th><td>3.60億円</td><td>21,268件</td><td>—</td></tr></tbody></table>
+    <p class="sc">出典: <a href="https://www.city.hitachinaka.lg.jp/kurashi/zeikin/1001665/1014765/1014703/1014713.html" target="_blank" rel="noopener">ひたちなか市の公表ページ →</a></p>
+  </div>
+</article>
+<article class="c g0" data-pref="千葉県" data-g="" data-hi="0" data-cost="0" data-q="山武市 千葉県 ふるさとさんむ応援寄附金（ふるさと納税）の令和6年度運用状況について">
+  <div class="gr"><b>—</b><span>伸び率は未算出</span></div>
+  <div class="bd">
+    <h3>山武市<span class="pf">千葉県</span></h3>
+    <p class="ti">令和6年度の受入額 <b>3.15億円</b>／受入件数 8,405件
+      <span class="bg g0">前年度比 —</span></p>
+    <p class="mt">連続する2年度の通年の受入額が出典から取れていないため、伸び率は出していません。</p>
+    
+    <table class="tb"><thead><tr><th>年度</th><th>受入額</th><th>受入件数</th><th>募集経費</th></tr></thead><tbody><tr><th>令和6年度</th><td>3.15億円</td><td>8,405件</td><td>—</td></tr></tbody></table>
+    <p class="sc">出典: <a href="https://www.city.sammu.lg.jp/shisei/furusato/kifu-unyou/page007459.html" target="_blank" rel="noopener">山武市の公表ページ →</a></p>
+  </div>
+</article>
+<article class="c g0" data-pref="茨城県" data-g="" data-hi="0" data-cost="0" data-q="笠間市 茨城県 ふるさと納税 寄附金の受入実績">
+  <div class="gr"><b>—</b><span>伸び率は未算出</span></div>
+  <div class="bd">
+    <h3>笠間市<span class="pf">茨城県</span></h3>
+    <p class="ti">令和6年度の受入額 <b>2.22億円</b>／受入件数 14,675件
+      <span class="bg g0">前年度比 —</span></p>
+    <p class="mt">連続する2年度の通年の受入額が出典から取れていないため、伸び率は出していません。</p>
+    
+    <table class="tb"><thead><tr><th>年度</th><th>受入額</th><th>受入件数</th><th>募集経費</th></tr></thead><tbody><tr><th>令和6年度</th><td>2.22億円</td><td>14,675件</td><td>—</td></tr></tbody></table>
+    <p class="sc">出典: <a href="https://www.city.kasama.lg.jp/page/page007685.html" target="_blank" rel="noopener">笠間市の公表ページ →</a></p>
+  </div>
+</article>
+<article class="c g0" data-pref="北海道" data-g="" data-hi="0" data-cost="0" data-q="置戸町 北海道 【令和6年度】ふるさと納税実績額の公表">
+  <div class="gr"><b>—</b><span>伸び率は未算出</span></div>
+  <div class="bd">
+    <h3>置戸町<span class="pf">北海道</span></h3>
+    <p class="ti">令和6年度の受入額 <b>1,564万円</b>
+      <span class="bg g0">前年度比 —</span></p>
+    <p class="mt">連続する2年度の通年の受入額が出典から取れていないため、伸び率は出していません。</p>
+    
+    <table class="tb"><thead><tr><th>年度</th><th>受入額</th><th>受入件数</th><th>募集経費</th></tr></thead><tbody><tr><th>令和6年度</th><td>1,564万円</td><td>—件</td><td>—</td></tr></tbody></table>
+    <p class="sc">出典: <a href="https://www.town.oketo.hokkaido.jp/topics/2301/" target="_blank" rel="noopener">置戸町の公表ページ →</a></p>
+  </div>
+</article>
+<article class="c g0" data-pref="福井県" data-g="" data-hi="0" data-cost="0" data-q="おおい町 福井県 令和5年度 ふるさと納税寄附実績と寄附者の公表について">
+  <div class="gr"><b>—</b><span>伸び率は未算出</span></div>
+  <div class="bd">
+    <h3>おおい町<span class="pf">福井県</span></h3>
+    <p class="ti">令和5年度の受入額 <b>1,245万円</b>／受入件数 533件
+      <span class="bg g0">前年度比 —</span></p>
+    <p class="mt">連続する2年度の通年の受入額が出典から取れていないため、伸び率は出していません。</p>
+    
+    <table class="tb"><thead><tr><th>年度</th><th>受入額</th><th>受入件数</th><th>募集経費</th></tr></thead><tbody><tr><th>令和5年度</th><td>1,245万円</td><td>533件</td><td>—</td></tr></tbody></table>
+    <p class="sc">出典: <a href="https://www.town.ohi.fukui.jp/object/object02/p24666.html" target="_blank" rel="noopener">おおい町の公表ページ →</a></p>
+  </div>
+</article>
+</div>
+
+<div class="refs">
+  <h2>一次情報（原本はこちらで確認できます）</h2>
+  <ul><li><a href="https://www.soumu.go.jp/main_sosiki/jichi_zeisei/czaisei/czaisei_seido/080430_2_kojin.html" target="_blank" rel="noopener">ふるさと納税ポータルサイト</a> <span>総務省 自治税務局</span></li><li><a href="https://www.soumu.go.jp/main_sosiki/jichi_zeisei/czaisei/czaisei_seido/furusato/archive/" target="_blank" rel="noopener">関連資料（告示・通知・現況調査）</a> <span>総務省 自治税務局</span></li><li><a href="https://www.soumu.go.jp/main_content/001084989.xlsx" target="_blank" rel="noopener">各自治体の令和7年度受入額等（Excel）</a> <span>総務省</span></li><li><a href="https://www.soumu.go.jp/main_content/001084990.xlsx" target="_blank" rel="noopener">各自治体のふるさと納税受入額及び受入件数 平成20年度〜令和7年度（Excel）</a> <span>総務省</span></li><li><a href="https://www.soumu.go.jp/main_content/001085011.pdf" target="_blank" rel="noopener">ふるさと納税に関する現況調査結果 令和8年度調査（概要・PDF）</a> <span>総務省</span></li><li><a href="https://www.soumu.go.jp/main_content/000956198.pdf" target="_blank" rel="noopener">【指定基準告示】平成31年総務省告示第179号（PDF）</a> <span>総務省</span></li></ul>
+  <p style="margin:8px 0 0;font-size:12px;color:var(--sub)">全国1,700余りの自治体の受入額・受入件数・募集に要した費用は、総務省が毎年公表している「ふるさと納税に関する現況調査結果」のExcelに揃っています。このサイトが載せているのは、そのうち<b>各自治体が自分のサイトでも公表している分</b>です。</p>
+</div>
+
+<footer>
+  <p>本サイトは、各自治体がふるさと納税の受入実績として自ら公開している数値（年度・受入額・受入件数・募集に要した費用）という<b>事実のみ</b>を抜き出して並べたものです。解説文は転載していません。寄附者名などの個人情報は一切扱っていません。</p>
+  <p>伸び率と経費率は、出典の公表値をもとにこのサイトで計算しています。金額の表記（億・万・千を含むもの）は円に換算して計算していますが、端数処理や年度の区切り方（通年か途中経過か）によって出典の説明と一致しないことがあります。判断に使う数値は必ず出典と総務省の現況調査でご確認ください。</p>
+  <p>掲載は特定の自治体・事業者を推奨するものではなく、応募資格・採択の可否を示すものでもありません。数値は自治体側の公表の更新・訂正により変わることがあります。</p>
+  <p>掲載内容の訂正・削除のご依頼は出典元の公表状況とあわせて確認します。会員登録・決済・個人情報の入力はありません。このページは外部にデータを送信しません。</p>
+</footer>
+</div></main>
+<script>
+(function(){
+  var fp=document.getElementById('fp'), fh=document.getElementById('fh'), fc=document.getElementById('fc'),
+      fq=document.getElementById('fq'), hit=document.getElementById('hit'),
+      cards=[].slice.call(document.querySelectorAll('#ls .c'));
+  function apply(){
+    var p=fp.value, h=fh.checked, c=fc.checked, q=fq.value.trim().toLowerCase(), n=0;
+    for(var i=0;i<cards.length;i++){
+      var e=cards[i];
+      var ok=(!p||e.dataset.pref===p)&&(!h||e.dataset.hi==='1')&&(!c||e.dataset.cost==='1')
+           &&(!q||e.dataset.q.toLowerCase().indexOf(q)>=0);
+      e.style.display=ok?'':'none'; if(ok)n++;
+    }
+    hit.textContent=n+'自治体'+(n<cards.length?'（全'+cards.length+'自治体中）':'');
+  }
+  fp.onchange=fh.onchange=fc.onchange=apply; fq.oninput=apply;
+})();
+</script>
+
+<script data-goatcounter="https://junikeda.goatcounter.com/count"
+        async src="//gc.zgo.at/count.js"></script>
+</body></html>
